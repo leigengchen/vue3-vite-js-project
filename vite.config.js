@@ -10,7 +10,6 @@ import Inspect from 'vite-plugin-inspect';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, __dirname)
-  console.log(env, mode, 'env')
   return {
     plugins: [
       vue(),
@@ -27,7 +26,8 @@ export default defineConfig(({ mode }) => {
         dirs: ['src/components'],
         // 自动导入的组件名称 包含目录 防止命名冲突
         directoryAsNamespace: true
-      })
+      }),
+
     ],
     publicDir: './public',
     base: './',
@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => {
         '/api': {
           target: env.VITE_APP_BASEAPI,
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, '')
+          // rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     },
@@ -60,6 +60,7 @@ export default defineConfig(({ mode }) => {
       outDir: 'dist',
       target: 'es2015',
       sourcemap: false,
+      cssCodeSplit: true,
       reportCompressedSize: false,
       terserOptions: {
         // 生产环境自动删除console.log / debugger
@@ -67,6 +68,13 @@ export default defineConfig(({ mode }) => {
           drop_console: true,
           drop_debugger: true
         }
+      },
+      // 压缩
+      viteCompression: false,
+      // 超大静态资源拆分
+      chunkSizeWarningLimit: 1500,
+      lib: {
+        // entry: resolve(__dirname, './src/main.js'),
       }
     }
   }

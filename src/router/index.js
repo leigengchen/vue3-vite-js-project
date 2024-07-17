@@ -12,6 +12,10 @@ const routes = [
     name: 'detailPage',
     component: () => import('@/views/detail/index.vue')
   },
+  {
+    path: '/',
+    redirect: '/index'
+  }
 ]
 
 const router = createRouter({
