@@ -9,7 +9,7 @@ import Inspect from 'vite-plugin-inspect';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, __dirname)
+  const env = loadEnv(mode, process.cwd(), '')
   return {
     plugins: [
       vue(),
@@ -52,7 +52,8 @@ export default defineConfig(({ mode }) => {
     css: {
       preprocessorOptions: {
         less: {
-          javascriptEnabled: true
+          // 支持内联 JavaScript
+          javascriptEnabled: true,
         }
       }
     },

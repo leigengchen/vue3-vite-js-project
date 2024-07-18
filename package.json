@@ -4,11 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "serve": "vite",
-    "dev": "vite --mode development",
+    "dev": "vite --mode dev",
     "qa": "vite --mode qa",
     "build:qa": "vite build --mode qa",
-    "build:pre": "vite build --mode production",
+    "build:pre": "vite build --mode pre",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +23,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "autoprefixer": "^10.4.19",
+    "eslint": "^9.7.0",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
     "postcss": "^8.4.39",
