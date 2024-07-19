@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'; // history
+import { createRouter, createWebHistory } from 'vue-router'; // history
 // import { start, done } from '@/utils/nprogress'
 
 const routes = [

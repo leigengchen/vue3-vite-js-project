@@ -5,6 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import Inspect from 'vite-plugin-inspect';
+import eslint from 'vite-plugin-eslint'
 // const isProduction = process.env.NODE_ENV === 'production'
 
 // https://vitejs.dev/config/
@@ -13,11 +14,15 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       vue(),
+      eslint(),
       Inspect(),
       // 自动导入
       AutoImport({
         imports: ['vue', 'vue-router'],
-        dirs: ['./src/utils/**']
+        dirs: ['./src/utils/**'],
+        eslintrc: {
+          enabled: true
+        }
       }),
       // 自动导入组件
       Components({

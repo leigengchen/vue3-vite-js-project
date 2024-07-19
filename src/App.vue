@@ -5,7 +5,7 @@
 <template>
   <HelloWorld />
   <new-com />
-  <router-view></router-view>
+  <router-view />
 </template>
 
 <style scoped></style>

@@ -6,10 +6,6 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
-import emitter from '../utils/emitter';
-
-
 const count = ref(0)
 
 onMounted(() => {
