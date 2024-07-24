@@ -15,8 +15,7 @@
 </template>
 
 <script setup>
-const router = useRouter()
-
+const router = useRouter();
 const nowTime = computed(() => parseTime(new Date()))
 
 const toDetailPage = () => {

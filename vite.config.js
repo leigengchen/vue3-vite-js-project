@@ -51,7 +51,9 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '@': resolve(__dirname, './src')
+        '@': resolve(__dirname, './src'),
+        '@components': resolve(__dirname, './src/components'),
+        '@utils': resolve(__dirname, './src/utils'),
       }
     },
     css: {
@@ -82,6 +84,10 @@ export default defineConfig(({ mode }) => {
       lib: {
         // entry: resolve(__dirname, './src/main.js'),
       }
+    },
+    esbuild: {
+      drop: ['debugger'],
+      pure: ['console.log']
     }
   }
 })
