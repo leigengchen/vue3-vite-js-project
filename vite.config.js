@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from "path";
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { ElementPlusResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 import Inspect from 'vite-plugin-inspect';
 import eslint from 'vite-plugin-eslint'
 // const isProduction = process.env.NODE_ENV === 'production'
@@ -27,7 +27,10 @@ export default defineConfig(({ mode }) => {
       // 自动导入组件
       Components({
         // 自动导入第三方组件
-        resolvers: [ElementPlusResolver()],
+        resolvers: [ElementPlusResolver(), AntDesignVueResolver({
+          importStyle: false,
+          resolveIcons: true
+        })],
         dirs: ['src/components'],
         // 自动导入的组件名称 包含目录 防止命名冲突
         directoryAsNamespace: true
@@ -45,7 +48,7 @@ export default defineConfig(({ mode }) => {
         '/api': {
           target: env.VITE_APP_BASEAPI,
           changeOrigin: true,
-          // rewrite: (path) => path.replace(/^\/api/, '')
+          rewrite: (path) => path.replace(/^\/api/, '')
         }
       }
     },
@@ -81,9 +84,9 @@ export default defineConfig(({ mode }) => {
       viteCompression: false,
       // 超大静态资源拆分
       chunkSizeWarningLimit: 1500,
-      lib: {
-        // entry: resolve(__dirname, './src/main.js'),
-      }
+      // lib: {
+      //   entry: resolve(__dirname, './src/main.js'), //
+      // }
     },
     esbuild: {
       drop: ['debugger'],
