@@ -45,3 +45,13 @@ npm install 或者 yarn
 ```
 npm run dev 或者 yarn dev
 ```
+
+### 4. 构建
+```
+npm run build:pre 或者 yarn build:pre
+```
+
+### 5. eslint修复
+```
+npm run lint 或者 yarn lint
+```
