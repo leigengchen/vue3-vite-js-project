@@ -41,6 +41,7 @@ module.exports = {
     'vue/max-attributes-per-line': 'off', // 取消@click重启一行校验规则
     'vue/singleline-html-element-content-newline': 'off', // 取消单行html元素内容换行校验规则
     'vue/require-v-for-key': 'error', // 给v-for设置键值，与key结合使用，可以高效的更新虚拟DOM
+    'no-loss-of-precision': 'off', // 取消小数精度校验规则
   }
 }
 
