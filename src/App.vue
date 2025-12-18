@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <!-- <HelloWorld /> -->
-  <!-- <new-com /> -->
+  <HelloWorld />
+  <new-com />
   <router-view />
 </template>
 
